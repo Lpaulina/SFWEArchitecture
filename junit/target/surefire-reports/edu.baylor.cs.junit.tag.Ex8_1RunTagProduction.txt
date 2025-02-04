@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: edu.baylor.cs.junit.tag.Ex8_1RunTagProduction
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec <<< FAILURE! - in edu.baylor.cs.junit.tag.Ex8_1RunTagProduction
+testCaseA(TestInfo)(Ex8TagTest)  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.AssertionError: production
+
+testCaseB(TestInfo)(Ex8TagTest)  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.AssertionError: debug
+

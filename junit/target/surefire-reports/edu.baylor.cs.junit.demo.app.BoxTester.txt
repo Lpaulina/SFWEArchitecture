@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: edu.baylor.cs.junit.demo.app.BoxTester
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 6, Time elapsed: 0.048 sec - in edu.baylor.cs.junit.demo.app.BoxTester

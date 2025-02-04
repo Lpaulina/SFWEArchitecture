@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: UserFeatureSuite
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.097 sec <<< FAILURE! - in UserFeatureSuite
+test()(Test2)  Time elapsed: 0.025 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Not yet implemented
+
+test()(Test)  Time elapsed: 0.001 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Not yet implemented
+

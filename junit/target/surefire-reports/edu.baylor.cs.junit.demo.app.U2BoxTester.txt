@@ -1,0 +1,24 @@
+-------------------------------------------------------------------------------
+Test set: edu.baylor.cs.junit.demo.app.U2BoxTester
+-------------------------------------------------------------------------------
+Tests run: 13, Failures: 0, Errors: 5, Skipped: 6, Time elapsed: 0.011 sec <<< FAILURE! - in edu.baylor.cs.junit.demo.app.U2BoxTester
+playFailPaid  Time elapsed: 0.002 sec  <<< ERROR!
+java.lang.NullPointerException
+	at edu.baylor.cs.junit.demo.app.BoxTester.playFailPaid(BoxTester.java:85)
+
+feedParams{Coin[], float}[1]  Time elapsed: 0.001 sec  <<< ERROR!
+java.lang.NullPointerException
+	at edu.baylor.cs.junit.demo.app.BoxTester.feedParams(BoxTester.java:48)
+
+feedParams{Coin[], float}[2]  Time elapsed: 0.001 sec  <<< ERROR!
+java.lang.NullPointerException
+	at edu.baylor.cs.junit.demo.app.BoxTester.feedParams(BoxTester.java:48)
+
+feedParams{Coin[], float}[3]  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NullPointerException
+	at edu.baylor.cs.junit.demo.app.BoxTester.feedParams(BoxTester.java:48)
+
+playPassPaid  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NullPointerException
+	at edu.baylor.cs.junit.demo.app.BoxTester.playPassPaid(BoxTester.java:91)
+
