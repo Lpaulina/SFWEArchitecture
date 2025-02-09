@@ -12,12 +12,14 @@ import org.junit.jupiter.api.Disabled;
 @Tag("debug")
 public class Ex8TagTest {
 	@Test
+	@Disabled
 	@Tag("production")
 	void testCaseA(TestInfo testInfo) {
 		fail("production");
 	}
 
 	@Test
+	@Disabled
 	void testCaseB(TestInfo testInfo) {
 		fail("debug");
 	}

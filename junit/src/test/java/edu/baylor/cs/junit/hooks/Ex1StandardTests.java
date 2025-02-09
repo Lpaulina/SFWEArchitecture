@@ -25,6 +25,7 @@ public class Ex1StandardTests {
     }
 
     @Test
+    @Disabled
     void failingTest() {
         fail("a failing test");
     }

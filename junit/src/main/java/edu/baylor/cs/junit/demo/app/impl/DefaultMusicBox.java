@@ -77,9 +77,12 @@ public class DefaultMusicBox implements IMusicBox {
 		Song song = mapSongs.get(index);
 
 		if (total != null && (song.getCost() <= total)) {
-			total = new BigDecimal(total - song.getCost())
-			.setScale(2, RoundingMode.HALF_UP)
-			.floatValue();
+			
+			if (song.getCost() != null){
+				total = new BigDecimal(total - song.getCost())
+				.setScale(2, RoundingMode.HALF_UP)
+				.floatValue();
+			}
 
 			System.out.println("1 " + total);
 
