@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 
+import org.junit.jupiter.api.Disabled;
+
+
 @Tag("debug")
 public class Ex8TagTest {
 	@Test

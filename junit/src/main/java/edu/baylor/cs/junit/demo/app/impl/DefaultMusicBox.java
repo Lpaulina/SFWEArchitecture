@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import edu.baylor.cs.junit.demo.app.IMusicBox;
 import edu.baylor.cs.junit.demo.app.objects.Coin;
@@ -32,6 +35,9 @@ public class DefaultMusicBox implements IMusicBox {
 	 */
 	protected void loadSongs() {
 		list = Arrays.asList(new Song(1,"Love song", 1f));
+		for (Song song: list){
+			System.out.println(song.getIndex() + " " + song.getName() + " " + song.getCost());
+		}
 	}
 	
 	/*
@@ -60,12 +66,23 @@ public class DefaultMusicBox implements IMusicBox {
 	 */
 	@Override
 	public String playSong(Integer index) {
-		if (index < 0) {
+		if (index == null || index < 0) {
 			throw new RuntimeException("Unknown option");
 		}
+
+		if (!mapSongs.containsKey(index)){
+			throw new NoSuchElementException("Unknown option");
+		}
+
 		Song song = mapSongs.get(index);
-		if (song.getCost() <= total) {
-			total =- song.getCost();
+
+		if (total != null && (song.getCost() <= total)) {
+			total = new BigDecimal(total - song.getCost())
+			.setScale(2, RoundingMode.HALF_UP)
+			.floatValue();
+
+			System.out.println("1 " + total);
+
 			return "Playing "+song.getName();
 		} else {
 			return "Not enough credit";

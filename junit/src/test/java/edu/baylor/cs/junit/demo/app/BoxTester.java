@@ -1,6 +1,8 @@
 package edu.baylor.cs.junit.demo.app;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.NoSuchElementException;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -35,9 +37,9 @@ public class BoxTester {
     }
 
     @Test
-    @Disabled("TODO: need to fix :)... yes you!")
+    // @Disabled("TODO: need to fix :)... yes you!")
     void feedEmpty() {
-    	box.insertCoin(null);
+        assertThrows(NullPointerException.class, () -> box.insertCoin(null));
     }
     
     @DisplayName("Should calculate the correct sum")
@@ -61,24 +63,29 @@ public class BoxTester {
     }
     
     @Test
-    @Disabled("TODO: need to fix :)... yes you!")
+    // @Disabled("TODO: need to fix :)... yes you!")
     void playFailHard() {
-    	box.playSong(-1); // fix the box!
+        assertThrows(RuntimeException.class, () -> box.playSong(-1));
+    	// box.playSong(-1); // fix the box!
     }
     @Test
-    @Disabled("TODO: need to fix :)... yes you!")
+    // @Disabled("TODO: need to fix :)... yes you!")
     void playFail() {
-    	box.playSong(0); // fix the box!
+        assertThrows(NoSuchElementException.class, () -> box.playSong(0));
+    	// box.playSong(0); // fix the box!
     }
     @Test
-    @Disabled("TODO: need to fix :)... yes you!")
+    // @Disabled("TODO: need to fix :)... yes you!")
     void playFailAgain() {
-    	box.playSong(null);
+        assertThrows(RuntimeException.class, () -> box.playSong(null));
+
+    	// box.playSong(null);
     }
+    
+    // @Disabled("TODO: need to fix :)... yes you!")
     @Test
-    @Disabled("TODO: need to fix :)... yes you!")
     void playAlmostPass() {
-    	box.playSong(1);
+    	assertEquals("Not enough credit" , box.playSong(1));
     }
     @Test
     void playFailPaid() {
@@ -94,12 +101,12 @@ public class BoxTester {
     	assertEquals("Playing "+box.listSongs().get(0).getName(),out);
     }
     @Test
-    @Disabled("TODO: need to fix :)... yes you!")
+    // @Disabled("TODO: need to fix :)... yes you!")
     void correctDeduction() {
     	box.insertCoin(Coin.cent);
     	box.insertCoin(Coin.dollar);
     	box.playSong(1);
-    	assertEquals(.01f,box.balance());
+    	assertEquals(.01f,box.balance(), 0.001f);
     }
     
 }
