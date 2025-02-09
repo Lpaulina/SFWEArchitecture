@@ -17,6 +17,7 @@ public class App {
         
         if (!file.exists()){
             System.out.println(fileName + " not found :(");
+            return;
         }
         
         if (fileExtention.equalsIgnoreCase("PDF")){
