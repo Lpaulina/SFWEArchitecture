@@ -5,7 +5,7 @@ package com.sfwe302;
  */
 public class App {
     public static void main(String[] args) {
-        MyListDemo myListDemo = new MyListDemo();
+        MySetDemo myListDemo = new MySetDemo();
         myListDemo.loadData();
         System.out.println(myListDemo.list.size());
     }
