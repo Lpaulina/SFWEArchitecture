@@ -8,8 +8,6 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -21,11 +19,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -41,26 +34,6 @@ public class MySetDemo extends URLLoader {
     protected static Map<String, Double> map = null;
     protected static Map<String, Integer> occurancesMap = new HashMap<>();
     protected Map<String, List<Product>> territoryMap = null;
-
-    public static void main(String[] args) {
-        disableVerification();
-        MySetDemo myListDemo = new MySetDemo();
-        myListDemo.loadData();
-        myListDemo.applySearch();
-        System.out.println(myListDemo.list.size());
-        myListDemo.createXLS();
-        System.out.println(myListDemo.all.size());
-
-        System.out.println("Size all: " + myListDemo.list.size());
-        System.out.println("Size unique: " + myListDemo.all.size());
-        System.out.println("Size duplicates: " + myListDemo.duplicates.size());
-        System.out.println("Size one occurence: " + myListDemo.oneOccurence.size());
-
-        for (Entry<String, Integer> entry : occurancesMap.entrySet()) {
-            System.out.println(entry.getKey() + " " + entry.getValue());
-        }
-
-    }
 
     protected void applySearch() {
         for (Product product : list) {
@@ -250,37 +223,6 @@ public class MySetDemo extends URLLoader {
             result.put(entry.getKey(), entry.getValue());
         }
         return result;
-    }
-
-    private static void disableVerification() {
-        // Disable SSL verification
-        TrustManager[] trustAllCerts = new TrustManager[] {
-                new X509TrustManager() {
-                    public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-                        return null;
-                    }
-
-                    public void checkClientTrusted(java.security.cert.X509Certificate[] certs, String authType) {
-                    }
-
-                    public void checkServerTrusted(java.security.cert.X509Certificate[] certs, String authType) {
-                    }
-                }
-        };
-
-        SSLContext sc = null;
-        try {
-            sc = SSLContext.getInstance("SSL");
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        try {
-            sc.init(null, trustAllCerts, new java.security.SecureRandom());
-        } catch (KeyManagementException e) {
-            e.printStackTrace();
-        }
-
-        HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
     }
 
 }
