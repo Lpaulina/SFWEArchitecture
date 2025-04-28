@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spring MVC</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <a href="/">Home</a>
+    <h1>Add Person</h1>
+
+    <form action="#" th:action="@{/people}" th:object="${person}" method="post">
+      <p>
+        Name: <input type="text" th:field="*{name}" /> <br />
+        <span
+          class="validationError"
+          th:if="${#fields.hasErrors('name')}"
+          th:errors="*{name}"
+        ></span>
+      </p>
+      <p>
+        Email: <input type="text" th:field="*{email}" /> <br />
+        <span
+          class="validationError"
+          th:if="${#fields.hasErrors('email')}"
+          th:errors="*{email}"
+        ></span>
+      </p>
+      <p>
+        Age: <input type="text" th:field="*{age}" /> <br />
+        <span
+          class="validationError"
+          th:if="${#fields.hasErrors('age')}"
+          th:errors="*{age}"
+        ></span>
+      </p>
+      <p>
+        <input type="submit" value="Submit" />
+      </p>
+    </form>
+  </body>
+</html>

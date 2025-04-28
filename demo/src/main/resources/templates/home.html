@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spring MVC</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <a href="/add-person">Add Person</a>
+    <table border="1" style="width: 300px">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+      </tr>
+      <tr th:each="person : ${people}">
+        <td th:text="${person.id}"></td>
+        <td th:text="${person.name}"></td>
+        <td th:text="${person.email}"></td>
+        <td th:text="${person.age}"></td>
+      </tr>
+    </table>
+</th:block>
+  </body>
+</html>
